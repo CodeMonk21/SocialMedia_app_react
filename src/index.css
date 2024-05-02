@@ -11,3 +11,12 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.Form-input{
+  /* font-size: 20px; */
+  border: none;
+  border-bottom: 1px solid;
+  padding: 0px 5px;
+  width: 90%;
+  outline: none;
+}
