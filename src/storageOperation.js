@@ -5,3 +5,6 @@ export const setRegisterUsers = (users) => localStorage.setItem("RegisterUsers",
 //logged user
 export const getLoggedUser = () => JSON.parse(localStorage.getItem("LoggedUser")) || false
 export const setLoggedUser = (user) => localStorage.setItem("LoggedUser",JSON.stringify(user))
+
+//Remove logged user
+export const removeLoggedUser = () => localStorage.removeItem("LoggedUser")

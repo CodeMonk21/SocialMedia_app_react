@@ -42,5 +42,39 @@ code {
   transition: all 0.5s ease-in-out;
 }
 .Form-button:hover{
-  background-color: rgb(104, 148, 224);
+  background-color: #6894e0;
+}
+.Navbar-container{
+  background-color: #3c3eb6;
+}
+.Navbar-select{
+  font-size: 18px;
+  padding: 5px 10px;
+  border: 1px solid;
+  border-radius: 8px;
+  outline: none;
+  background-color: transparent;
+  color: white;
+  padding: 4px 20px;
+  cursor: pointer;
+}
+.Navbar-select option{
+  cursor: pointer;
+  /* font-size: 20px; */
+  background-color: #55627e;
+  border: none;
+  outline: none;
+  height: 40px;
+}
+.Navbar-button{
+  background-color: #49c05b;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+  padding: 8px 15px;
+  transition: all 0.5s ease-in-out;
+}
+.Navbar-button:hover{
+  background-color: #6263c1;
 }
