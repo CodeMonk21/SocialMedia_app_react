@@ -13,7 +13,7 @@ function AppRouter() {
                     <Route key={index} path={element.path} element={< element.element />} ></Route>
                 )}
                 //Private Routes:- Home,MyPost,AddPost
-                {getLoggedUser() && privateRoute.map((element,index)=>
+                {privateRoute.map((element,index)=>
                     <Route key={index} path={element.path} element={< element.element />} ></Route>
                     
                 )}

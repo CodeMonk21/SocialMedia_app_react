@@ -1,4 +1,8 @@
 import React, { useEffect, useState } from 'react'
+import PersonIcon from '@mui/icons-material/Person';
+import EmailIcon from '@mui/icons-material/Email';
+import LockIcon from '@mui/icons-material/Lock';
+import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import { Link, useNavigate } from 'react-router-dom'
 import { getRegisterUsers, setRegisterUsers } from '../storageOperation'
 
@@ -21,12 +25,12 @@ function Signup() {
   const handleSignup = () => {
     if (verifyInput()) {
       let message = verifyUser()
-      if(message.length==0){
+      if (message.length == 0) {
         setErrorMessage("")
         setUserData({ name: "", email: "", password: "", confirmPassword: "", terms: false })
         setRegisterUsers(previousUsers.concat(userData))
         navigate("/login")
-      }else{
+      } else {
         setErrorMessage(message)
       }
     }
@@ -85,40 +89,47 @@ function Signup() {
 
   return (
     <>
-      <div >
-        <div className='border w-50 m-auto shadow my-5'>
-          <h1 className='text-center mb-4 bg-warning p-3 text-white'>SignUp</h1>
-          {errorMessage.length > 0 && <h3 className='text-center text-danger'>{errorMessage}</h3>}
-          <div className='px-5 py-3'>
-            {/* Name */}
-            <div className="mb-3">
-              <label htmlFor="nameInput" className="form-label fs-5">Name</label>
-              <input type="text" className="form-control" id="nameInput" name='name' onChange={handleInput} value={userData.name} />
+      <div className='vh-100 d-flex justify-content-center align-items-center ' style={{ backgroundColor: "whitesmoke" }}>
+        <div className='border shadow' style={{ backgroundColor: "white", borderRadius: "20px", padding: "50px 100px", width: "950px" }}>
+          <div className='d-flex justify-content-between gap-5'>
+            {/* Signup container */}
+            <div className='w-50'>
+              <h1 className='text-bold mb-5 text-center'>SignUp</h1>
+              {errorMessage.length > 0 && <h3 className='text-center text-danger'>{errorMessage}</h3>}
+              {/* UserName Input */}
+              <div className="Form-input">
+                <PersonIcon className='Form-icon' />
+                <input type="text" className='' placeholder='Your Username' name='name' onChange={handleInput} value={userData.name}/>
+              </div>
+              {/* Email Input */}
+              <div className="Form-input">
+                <EmailIcon className='Form-icon' />
+                <input type="email" className='' placeholder='Your Email id' name='email' onChange={handleInput} value={userData.email} />
+              </div>
+              {/* Password Input */}
+              <div className="Form-input">
+                <LockIcon className='Form-icon' />
+                <input type="password" className='' placeholder='Your Password' name='password' onChange={handleInput} value={userData.password} />
+              </div>
+              {/* Confirm Password Input */}
+              <div className="Form-input">
+                <LockOutlinedIcon className='Form-icon' />
+                <input type="password" className='' placeholder='Repete Your Password' name='confirmPassword' onChange={handleInput} value={userData.confirmPassword} />
+              </div>
+              {/* Terms and conditions */}
+              <div className="d-flex gap-2 align-items-center">
+                <input type="checkbox" id='checkbox' className='' style={{ height: "15px", width: "20px" }} name='terms' onChange={handleInput} />
+                <label htmlFor="checkbox" className='text-body cursor-pointer'>I agree all statements in <a href="" className='text-body'>Terms of service</a></label>
+              </div>
+              {/* Register button */}
+              <div className="">
+                <button type="" className="Form-button" onClick={handleSignup}>Register</button>
+              </div>
             </div>
-            {/* Email */}
-            <div className="mb-3">
-              <label htmlFor="emailInput" className="form-label fs-5">Email address</label>
-              <input type="email" className="form-control" id="emailInput" name='email' onChange={handleInput} value={userData.email} />
-            </div>
-            {/* Password */}
-            <div className="mb-3">
-              <label htmlFor="passwordInput" className="form-label fs-5">Password</label>
-              <input type="password" className="form-control" id="passwordInput" name='password' onChange={handleInput} value={userData.password} />
-            </div>
-            {/* Confirm Password */}
-            <div className="mb-3">
-              <label htmlFor="confirmPasswordInput" className="form-label fs-5">Confirm Password</label>
-              <input type="password" className="form-control" id="confirmPasswordInput" name='confirmPassword' onChange={handleInput} value={userData.confirmPassword} />
-            </div>
-            {/* Terms and conditions */}
-            <div className="mb-3 form-check">
-              <input type="checkbox" className="form-check-input fs-5" id="exampleCheck1" name='terms' onChange={handleInput} />
-              <label className="form-check-label fs-5" htmlFor="exampleCheck1">Agree to Terms and Conditions?</label>
-            </div>
-            {/* SignUp button */}
-            <button type="submit" className="btn btn-primary w-50 d-block m-auto" onClick={handleSignup}>Sign Up</button>
-            <div>
-              <p className='my-3 text-primary fs-5 text-center'>Already have an Account:- <Link to="/login">Login</Link></p>
+            {/* Image container */}
+            <div className='d-flex flex-column justify-content-center'>
+              <img src="./assets/signup.jpg" alt="" className='' /> <br />
+              <Link className='text-center mt-5 fs-6  text-body' to="/login" >I am already a member</Link>
             </div>
           </div>
         </div>
