@@ -1,25 +1,17 @@
 import React, { useEffect, useState } from 'react'
 import AdbIcon from '@mui/icons-material/Adb';
 import { Avatar } from '@mui/material';
-import { getLoggedUser, removeLoggedUser } from '../storageOperation';
-import { Link, useNavigate } from 'react-router-dom';
+import { getLoggedUser} from '../storageOperation';
+import { Link} from 'react-router-dom';
 import PostAddIcon from '@mui/icons-material/PostAdd';
 
-function Navbar() {
+function Navbar({handleLogout}) {
     // Hooks
     const [userLogged, setUserLogged] = useState({name:""})
-    const navigate = useNavigate()
-
-    // Handle Logout 
-    const handleLogout = () =>{
-        removeLoggedUser()
-        navigate("/login")
-    }
-
+    
     useEffect(() => {
         setUserLogged(getLoggedUser())
     }, [])
-
 
     return (
         <>

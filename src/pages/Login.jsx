@@ -4,8 +4,7 @@ import LockIcon from '@mui/icons-material/Lock';
 import { Link, useNavigate } from 'react-router-dom';
 import { getRegisterUsers, setLoggedUser } from '../storageOperation';
 
-function Login() {
-
+function Login({setUpdate}) {
   const navigate = useNavigate()
 
   //Use State
@@ -22,6 +21,7 @@ function Login() {
       if (user) {
         setLoggedUser(user)
         setUserDetail({ email: "", password: "" })
+        setUpdate(1)
         navigate('/')
       }
     }
